@@ -1,6 +1,7 @@
 import { ElementType } from 'react'
 import { User, Home, Check } from 'lucide-react'
 import { Eyebrow } from '@/components/ui/Eyebrow'
+import type { ServicesDict } from '@/dictionaries'
 
 function CheckItem({ children }: { children: string }) {
   return (
@@ -18,11 +19,15 @@ function ServiceCard({
   title,
   desc,
   features,
+  labelBasic,
+  labelPremium,
 }: {
   premium?: boolean
   title: string
   desc: string
   features: string[]
+  labelBasic: string
+  labelPremium: string
 }) {
   return (
     <div
@@ -36,7 +41,7 @@ function ServiceCard({
             premium ? 'bg-mint-light text-mint-dark' : 'bg-warm text-stone'
           }`}
         >
-          {premium ? 'Premium' : 'Basic'}
+          {premium ? labelPremium : labelBasic}
         </span>
         <div className="font-syne text-[20px] font-bold text-navy mb-2">{title}</div>
         <p className="text-[13px] leading-[1.6] m-0">{desc}</p>
@@ -52,98 +57,44 @@ function ServiceCard({
   )
 }
 
-const PILLARS: {
-  icon: ElementType
-  title: string
-  desc: string
-  cards: { title: string; desc: string; features: string[]; premium: boolean }[]
-}[] = [
-  {
-    icon: User,
-    title: 'Consultoria para a Pessoa',
-    desc: 'Prescrição, seleção e ajuste fino de tecnologias assistivas — cadeiras de rodas, almofadas, órteses e acessórios.',
-    cards: [
-      {
-        title: 'Avaliação Individual',
-        desc: 'O essencial para uma decisão segura e tecnicamente fundamentada.',
-        features: [
-          'Avaliação individual presencial ou online',
-          'Relatório técnico completo',
-          'Seleção dos equipamentos assistivos ideais',
-        ],
-        premium: false,
-      },
-      {
-        title: 'Acompanhamento Completo',
-        desc: 'Do diagnóstico à chegada do equipamento — com você em cada etapa.',
-        features: [
-          'Tudo do plano Basic',
-          'Contato e negociação com fornecedores',
-          '1 acompanhamento online após o recebimento',
-        ],
-        premium: true,
-      },
-    ],
-  },
-  {
-    icon: Home,
-    title: 'Consultoria para o Ambiente',
-    desc: 'Planejamento e adequação de espaços residenciais ou de trabalho — eliminando barreiras físicas com design e funcionalidade.',
-    cards: [
-      {
-        title: 'Diagnóstico de Acessibilidade',
-        desc: 'Visão clara das adaptações necessárias para seu espaço.',
-        features: [
-          'Avaliação completa do ambiente',
-          'Relatório de acessibilidade domiciliar',
-          'Lista com equipamentos necessários',
-        ],
-        premium: false,
-      },
-      {
-        title: 'Transformação Completa',
-        desc: 'Diagnóstico detalhado, fornecedores e suporte até a adaptação final.',
-        features: [
-          'Tudo do plano Basic',
-          'Lista com fornecedores dos equipamentos',
-          'Auxílio no contato com fornecedores',
-          '1 acompanhamento online após a chegada',
-        ],
-        premium: true,
-      },
-    ],
-  },
-]
+const PILLAR_ICONS: ElementType[] = [User, Home]
 
-export function Services() {
+export function Services({ dict }: { dict: ServicesDict }) {
   return (
     <section id="services" className="py-24 bg-warm">
       <div className="max-w-container mx-auto px-10">
         <div className="text-center mb-14">
-          <Eyebrow>Nossas consultorias</Eyebrow>
+          <Eyebrow>{dict.eyebrow}</Eyebrow>
           <h2 className="font-syne text-[clamp(28px,3vw,42px)] font-bold text-navy mb-3 leading-[1.15]">
-            Online ou presencial.
+            {dict.headingLine1}
             <br />
-            Sempre personalizado.
+            {dict.headingLine2}
           </h2>
-          <p className="text-[16px] max-w-[520px] mx-auto">
-            Dois pilares de atuação, com planos Basic e Premium que se adaptam à sua necessidade.
-          </p>
+          <p className="text-[16px] max-w-[520px] mx-auto">{dict.body}</p>
         </div>
-        {PILLARS.map(({ icon: Icon, title, desc, cards }) => (
-          <div key={title} className="mb-12 last:mb-0">
-            <div className="flex items-center gap-[10px] font-syne text-[18px] font-bold text-navy mb-2">
-              <Icon size={20} stroke="#6ED3B1" strokeWidth={2} />
-              {title}
+        {dict.pillars.map(({ title, desc, cards }, i) => {
+          const Icon = PILLAR_ICONS[i]
+          return (
+            <div key={title} className="mb-12 last:mb-0">
+              <div className="flex items-center gap-[10px] font-syne text-[18px] font-bold text-navy mb-2">
+                <Icon size={20} stroke="#6ED3B1" strokeWidth={2} />
+                {title}
+              </div>
+              <p className="text-[14px] mb-[22px]">{desc}</p>
+              <div className="grid sm:grid-cols-2 gap-5">
+                {cards.map((card, j) => (
+                  <ServiceCard
+                    key={card.title}
+                    {...card}
+                    premium={j === 1}
+                    labelBasic={dict.labelBasic}
+                    labelPremium={dict.labelPremium}
+                  />
+                ))}
+              </div>
             </div>
-            <p className="text-[14px] mb-[22px]">{desc}</p>
-            <div className="grid sm:grid-cols-2 gap-5">
-              {cards.map((card) => (
-                <ServiceCard key={card.title} {...card} />
-              ))}
-            </div>
-          </div>
-        ))}
+          )
+        })}
       </div>
     </section>
   )

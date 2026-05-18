@@ -1,10 +1,11 @@
 import Image from 'next/image'
 import { Button } from './ui/Button'
 import { WhatsAppIcon } from './ui/WhatsAppIcon'
+import { LangSwitcher } from './LangSwitcher'
+import type { NavDict } from '@/dictionaries'
+import { WA } from '@/lib/constants'
 
-const WA = 'https://wa.me/5561900000000'
-
-export function Nav() {
+export function Nav({ dict }: { dict: NavDict }) {
   return (
     <nav className="sticky top-0 z-[100] bg-white/[.94] backdrop-blur-[16px] border-b border-[var(--border)]">
       <div className="max-w-container mx-auto px-10 h-[68px] flex items-center justify-between">
@@ -13,15 +14,23 @@ export function Nav() {
           <span className="font-syne font-bold text-[20px] text-navy">Ableway</span>
         </a>
         <div className="hidden md:flex items-center gap-7">
-          <a href="#problem" className="text-[14px] font-medium text-stone hover:text-navy transition-colors duration-[150ms] no-underline">Por que Ableway</a>
-          <a href="#services" className="text-[14px] font-medium text-stone hover:text-navy transition-colors duration-[150ms] no-underline">Serviços</a>
-          <a href="#team" className="text-[14px] font-medium text-stone hover:text-navy transition-colors duration-[150ms] no-underline">Equipe</a>
-          <a href="#cta" className="text-[14px] font-medium text-stone hover:text-navy transition-colors duration-[150ms] no-underline">Contato</a>
+          {dict.links.map(({ label, href }) => (
+            <a
+              key={href}
+              href={href}
+              className="text-[14px] font-medium text-stone hover:text-navy transition-colors duration-[150ms] no-underline"
+            >
+              {label}
+            </a>
+          ))}
         </div>
-        <Button href={WA} target="_blank" rel="noopener noreferrer">
-          <WhatsAppIcon size={15} />
-          Agendar avaliação
-        </Button>
+        <div className="flex items-center gap-3">
+          <LangSwitcher />
+          <Button href={WA} target="_blank" rel="noopener noreferrer">
+            <WhatsAppIcon size={15} />
+            {dict.cta}
+          </Button>
+        </div>
       </div>
     </nav>
   )

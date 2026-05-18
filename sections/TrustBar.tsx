@@ -1,3 +1,5 @@
+import type { TrustBarDict } from '@/dictionaries'
+
 const PARTNERS = [
   'Rede Sarah',
   'Hospital Universitário de Brasília',
@@ -6,12 +8,12 @@ const PARTNERS = [
   'Univ. Real Madrid',
 ]
 
-export function TrustBar() {
+export function TrustBar({ dict }: { dict: TrustBarDict }) {
   return (
     <section id="trust" className="bg-warm border-b border-[var(--border)] py-9">
       <div className="max-w-container mx-auto px-10 flex items-center justify-between gap-8 flex-wrap">
         <span className="text-[12px] font-semibold tracking-[.1em] uppercase text-[rgba(28,49,68,.35)] whitespace-nowrap">
-          Parceiros e formações
+          {dict.label}
         </span>
         <div className="flex gap-10 flex-wrap items-center">
           {PARTNERS.map((name) => (
