@@ -21,7 +21,7 @@ export function Button({
 }: ButtonProps) {
   return (
     <a
-      className={`inline-flex items-center gap-[9px] font-jakarta text-[15px] font-semibold px-[26px] py-[13px] rounded-[8px] cursor-pointer no-underline transition-all duration-[180ms] whitespace-nowrap ${VARIANTS[variant]} ${className}`}
+      className={`inline-flex items-center gap-[9px] font-jakarta text-[15px] font-semibold px-[26px] py-[13px] rounded-full cursor-pointer no-underline transition-all duration-[180ms] whitespace-nowrap ${VARIANTS[variant]} ${className}`}
       {...props}
     >
       {children}

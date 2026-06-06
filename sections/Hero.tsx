@@ -58,7 +58,7 @@ export function Hero({ dict, waHref }: { dict: HeroDict; waHref: string }) {
             variant="navy"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full justify-center rounded-full"
+            className="w-full justify-center"
           >
             <FaWhatsapp size={18} />
             {dict.cardBtn}

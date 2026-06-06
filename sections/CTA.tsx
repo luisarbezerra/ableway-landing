@@ -15,13 +15,13 @@ export function CTA({ dict, waHref }: { dict: CTADict; waHref: string }) {
           <em className="text-mint-dark not-italic">{dict.headingEm}</em>
         </h2>
         <p className="text-[16px] leading-[1.7] mb-9 max-w-[480px] mx-auto">{dict.body}</p>
-        <div className="flex gap-3 justify-center">
+        <div className="flex gap-3 justify-center flex-wrap">
           <Button
             href={waHref}
             variant="navy"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ fontSize: '16px', padding: '15px 30px' }}
+            className="px-8 py-4 text-[16px]"
           >
             <FaWhatsapp size={18} />
             {dict.btnPrimary}
@@ -29,7 +29,7 @@ export function CTA({ dict, waHref }: { dict: CTADict; waHref: string }) {
           <Button
             href={EMAIL}
             variant="outline"
-            style={{ fontSize: '16px', padding: '15px 30px' }}
+            className="px-8 py-4 text-[16px]"
           >
             <Mail size={16} />
             {dict.btnSecondary}
@@ -39,7 +39,7 @@ export function CTA({ dict, waHref }: { dict: CTADict; waHref: string }) {
             variant="outline"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ fontSize: '16px', padding: '15px 30px' }}
+            className="px-8 py-4 text-[16px]"
           >
             <FaInstagram size={18} />
             {dict.btnTertiary}

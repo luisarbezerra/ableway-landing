@@ -22,9 +22,13 @@ export function Manifesto({ dict, values }: { dict: ManifestoDict; values: Value
 
         {/* Values */}
         <div>
-          <p className="font-syne text-[13px] font-bold tracking-[.12em] uppercase text-stone mb-6">
-            {values.heading}
-          </p>
+          <div className="flex items-center gap-4 mb-8">
+            <div className="flex-1 h-px bg-[var(--border)]" />
+            <h3 className="font-syne text-[13px] font-bold tracking-[.2em] uppercase text-stone whitespace-nowrap">
+              {values.heading}
+            </h3>
+            <div className="flex-1 h-px bg-[var(--border)]" />
+          </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {values.items.map(({ title, desc }, i) => {
               const Icon = VALUE_ICONS[i]

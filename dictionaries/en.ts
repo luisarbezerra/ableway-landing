@@ -256,6 +256,6 @@ export const en: Dictionary = {
         ],
       },
     ],
-    copyright: '© 2025 Ableway · All rights reserved',
+    copyright: '© 2026 Ableway · All rights reserved',
   },
 }
