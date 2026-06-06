@@ -233,8 +233,6 @@ export const en: Dictionary = {
         links: [
           { label: 'Personal Consulting', href: '#services' },
           { label: 'Environmental Consulting', href: '#services' },
-          { label: 'Basic Plan', href: '#services' },
-          { label: 'Premium Plan', href: '#services' },
         ],
       },
       {

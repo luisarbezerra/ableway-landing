@@ -235,8 +235,6 @@ export const pt: Dictionary = {
         links: [
           { label: 'Plano I — Para a Pessoa', href: '#services' },
           { label: 'Plano II — Para o Ambiente', href: '#services' },
-          { label: 'Plano Basic', href: '#services' },
-          { label: 'Plano Premium', href: '#services' },
         ],
       },
       {

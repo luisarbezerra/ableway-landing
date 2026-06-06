@@ -233,8 +233,6 @@ export const es: Dictionary = {
         links: [
           { label: 'Consultoría para la Persona', href: '#services' },
           { label: 'Consultoría para el Entorno', href: '#services' },
-          { label: 'Plan Basic', href: '#services' },
-          { label: 'Plan Premium', href: '#services' },
         ],
       },
       {
