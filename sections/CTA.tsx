@@ -16,31 +16,15 @@ export function CTA({ dict, waHref }: { dict: CTADict; waHref: string }) {
         </h2>
         <p className="text-[16px] leading-[1.7] mb-9 max-w-[480px] mx-auto">{dict.body}</p>
         <div className="flex gap-3 justify-center flex-wrap">
-          <Button
-            href={waHref}
-            variant="navy"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 text-[16px]"
-          >
+          <Button href={waHref} variant="navy" target="_blank" rel="noopener noreferrer">
             <FaWhatsapp size={18} />
             {dict.btnPrimary}
           </Button>
-          <Button
-            href={EMAIL}
-            variant="outline"
-            className="px-8 py-4 text-[16px]"
-          >
+          <Button href={EMAIL} variant="outline">
             <Mail size={16} />
             {dict.btnSecondary}
           </Button>
-          <Button
-            href={INSTAGRAM}
-            variant="outline"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-8 py-4 text-[16px]"
-          >
+          <Button href={INSTAGRAM} variant="outline" target="_blank" rel="noopener noreferrer">
             <FaInstagram size={18} />
             {dict.btnTertiary}
           </Button>
