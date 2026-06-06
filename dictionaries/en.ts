@@ -220,7 +220,7 @@ export const en: Dictionary = {
     headingEm: 'autonomy?',
     body: 'Schedule your evaluation — online or in-person in Brasília. No bureaucracy, just technical and human care.',
     btnPrimary: 'Schedule evaluation',
-    btnSecondary: 'Email',
+    btnSecondary: 'Send email',
     btnTertiary: 'Instagram',
     footnote: 'Ablewayc@gmail.com · @ablewayc · Brasília, Brazil',
   },

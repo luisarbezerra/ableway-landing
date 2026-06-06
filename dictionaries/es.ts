@@ -220,7 +220,7 @@ export const es: Dictionary = {
     headingEm: 'autonomía?',
     body: 'Agende su evaluación — online o presencial en Brasilia. Sin burocracia, solo cuidado técnico y humano.',
     btnPrimary: 'Agendar evaluación',
-    btnSecondary: 'Email',
+    btnSecondary: 'Enviar correo',
     btnTertiary: 'Instagram',
     footnote: 'Ablewayc@gmail.com · @ablewayc · Brasilia, Brasil',
   },

@@ -8,7 +8,7 @@ import { EMAIL, INSTAGRAM } from '@/lib/constants'
 export function CTA({ dict, waHref }: { dict: CTADict; waHref: string }) {
   return (
     <section id="cta" className="py-24 bg-mint-lighter border-t border-mint-light">
-      <div className="max-w-[640px] mx-auto px-10 text-center">
+      <div className="max-w-[640px] mx-auto px-4 sm:px-0 text-center">
         <Eyebrow>{dict.eyebrow}</Eyebrow>
         <h2 className="font-syne text-[clamp(30px,4vw,48px)] font-extrabold text-navy mb-4 leading-[1.1]">
           {dict.headingBase}{' '}

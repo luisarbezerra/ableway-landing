@@ -222,7 +222,7 @@ export const pt: Dictionary = {
     headingEm: 'autonomia?',
     body: 'Agende sua avaliação — online ou presencial em Brasília. Sem burocracia, só cuidado técnico e humano.',
     btnPrimary: 'Agendar avaliação',
-    btnSecondary: 'Email',
+    btnSecondary: 'Enviar e-mail',
     btnTertiary: 'Instagram',
     footnote: 'Ablewayc@gmail.com · @ablewayc · Brasília, Brasil',
   },
