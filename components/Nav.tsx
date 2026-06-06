@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { Button } from './ui/Button'
-import { WhatsAppIcon } from './ui/WhatsAppIcon'
+import { FaWhatsapp } from 'react-icons/fa'
 import { LangSwitcher } from './LangSwitcher'
 import type { NavDict } from '@/dictionaries'
 import { WA } from '@/lib/constants'
@@ -26,8 +26,8 @@ export function Nav({ dict }: { dict: NavDict }) {
         </div>
         <div className="flex items-center gap-3">
           <LangSwitcher />
-          <Button href={WA} target="_blank" rel="noopener noreferrer">
-            <WhatsAppIcon size={15} />
+          <Button href={WA} target="_blank" rel="noopener noreferrer" className="rounded-full">
+            <FaWhatsapp size={18} />
             {dict.cta}
           </Button>
         </div>

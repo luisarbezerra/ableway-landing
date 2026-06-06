@@ -59,7 +59,9 @@ export type TeamDict = {
   eyebrow: string
   heading: string
   body: string
-  members: { name: string; role: string; bio: string; tags: string[] }[]
+  narrativeLabel: string
+  narrative: string
+  members: { name: string; role: string; bio: string; tags: string[]; photo?: string }[]
 }
 
 export type ManifestoDict = {
@@ -83,6 +85,7 @@ export type CTADict = {
   body: string
   btnPrimary: string
   btnSecondary: string
+  btnTertiary: string
   footnote: string
 }
 

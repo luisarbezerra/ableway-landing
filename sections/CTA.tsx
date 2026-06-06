@@ -1,8 +1,9 @@
+import { Mail } from 'lucide-react'
+import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import { Eyebrow } from '@/components/ui/Eyebrow'
 import { Button } from '@/components/ui/Button'
-import { WhatsAppIcon } from '@/components/ui/WhatsAppIcon'
 import type { CTADict } from '@/dictionaries'
-import { WA, EMAIL } from '@/lib/constants'
+import { WA, EMAIL, INSTAGRAM } from '@/lib/constants'
 
 export function CTA({ dict }: { dict: CTADict }) {
   return (
@@ -14,7 +15,7 @@ export function CTA({ dict }: { dict: CTADict }) {
           <em className="text-mint-dark not-italic">{dict.headingEm}</em>
         </h2>
         <p className="text-[16px] leading-[1.7] mb-9 max-w-[480px] mx-auto">{dict.body}</p>
-        <div className="flex gap-3 justify-center flex-wrap">
+        <div className="flex gap-3 justify-center">
           <Button
             href={WA}
             variant="navy"
@@ -22,7 +23,7 @@ export function CTA({ dict }: { dict: CTADict }) {
             rel="noopener noreferrer"
             style={{ fontSize: '16px', padding: '15px 30px' }}
           >
-            <WhatsAppIcon size={17} />
+            <FaWhatsapp size={18} />
             {dict.btnPrimary}
           </Button>
           <Button
@@ -30,7 +31,18 @@ export function CTA({ dict }: { dict: CTADict }) {
             variant="outline"
             style={{ fontSize: '16px', padding: '15px 30px' }}
           >
+            <Mail size={16} />
             {dict.btnSecondary}
+          </Button>
+          <Button
+            href={INSTAGRAM}
+            variant="outline"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ fontSize: '16px', padding: '15px 30px' }}
+          >
+            <FaInstagram size={18} />
+            {dict.btnTertiary}
           </Button>
         </div>
       </div>

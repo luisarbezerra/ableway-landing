@@ -3,20 +3,23 @@ import { User, Home, Check } from 'lucide-react'
 import { Eyebrow } from '@/components/ui/Eyebrow'
 import type { ServicesDict } from '@/dictionaries'
 
-function CheckItem({ children }: { children: string }) {
+function CheckItem({ children, light }: { children: string; light?: boolean }) {
   return (
-    <li className="flex items-start gap-[9px] text-[13px] text-navy leading-[1.5]">
-      <div className="w-[18px] h-[18px] rounded-full bg-mint-light flex items-center justify-center flex-shrink-0 mt-[1px]">
-        <Check size={10} stroke="#44B893" strokeWidth={3} />
+    <li className="flex items-start gap-[10px] text-[13px] leading-[1.55]">
+      <div
+        className={`w-[18px] h-[18px] rounded-full flex items-center justify-center flex-shrink-0 mt-[1px] ${
+          light ? 'bg-white/15' : 'bg-mint-light'
+        }`}
+      >
+        <Check size={10} stroke={light ? '#6ED3B1' : '#44B893'} strokeWidth={3} />
       </div>
-      {children}
+      <span className={light ? 'text-white/80' : 'text-navy'}>{children}</span>
     </li>
   )
 }
 
 function ServiceCard({
   premium,
-  title,
   desc,
   features,
   labelBasic,
@@ -29,25 +32,44 @@ function ServiceCard({
   labelBasic: string
   labelPremium: string
 }) {
-  return (
-    <div
-      className={`bg-white rounded-[16px] border overflow-hidden transition-shadow duration-[150ms] hover:shadow-[0_4px_20px_rgba(28,49,68,.06)] ${
-        premium ? 'border-mint' : 'border-[var(--border)]'
-      }`}
-    >
-      <div className="px-7 pt-7 pb-5">
-        <span
-          className={`inline-block text-[10px] font-bold tracking-[.15em] uppercase px-[9px] py-[3px] rounded-[4px] mb-3 ${
-            premium ? 'bg-mint-light text-mint-dark' : 'bg-warm text-stone'
-          }`}
-        >
-          {premium ? labelPremium : labelBasic}
-        </span>
-        <div className="font-syne text-[20px] font-bold text-navy mb-2">{title}</div>
-        <p className="text-[13px] leading-[1.6] m-0">{desc}</p>
+  if (premium) {
+    return (
+      <div className="relative rounded-[20px] overflow-visible border-2 border-mint bg-white flex flex-col transition-shadow duration-[150ms] hover:shadow-[0_4px_20px_rgba(28,49,68,.12)]">
+        {/* Badge */}
+        <div className="absolute -top-3 right-5 bg-navy text-white text-[10px] font-bold tracking-[.15em] uppercase px-3 py-[5px] rounded-full">
+          Mais completo
+        </div>
+        {/* Header */}
+        <div className="px-7 pt-7 pb-6 border-b border-[var(--border)]">
+          <span className="inline-block text-[10px] font-bold tracking-[.18em] uppercase px-3 py-[5px] rounded-full bg-navy/10 text-navy mb-4">
+            {labelPremium}
+          </span>
+          <p className="text-[13px] leading-[1.65] text-stone m-0">{desc}</p>
+        </div>
+        {/* Features */}
+        <div className="px-7 py-7 flex-1">
+          <ul className="list-none flex flex-col gap-[11px] p-0 m-0">
+            {features.map((f) => (
+              <CheckItem key={f}>{f}</CheckItem>
+            ))}
+          </ul>
+        </div>
       </div>
-      <div className="px-7 pb-7 pt-5 border-t border-[var(--border)]">
-        <ul className="list-none flex flex-col gap-[9px] p-0 m-0">
+    )
+  }
+
+  return (
+    <div className="rounded-[20px] overflow-hidden border border-[var(--border)] bg-white flex flex-col transition-shadow duration-[150ms] hover:shadow-[0_4px_20px_rgba(28,49,68,.06)]">
+      {/* Header */}
+      <div className="px-7 pt-7 pb-6 border-b border-[var(--border)]">
+        <span className="inline-block text-[10px] font-bold tracking-[.18em] uppercase px-3 py-[5px] rounded-full bg-warm text-stone mb-4">
+          {labelBasic}
+        </span>
+        <p className="text-[13px] leading-[1.65] text-stone m-0">{desc}</p>
+      </div>
+      {/* Features */}
+      <div className="px-7 py-7 flex-1">
+        <ul className="list-none flex flex-col gap-[11px] p-0 m-0">
           {features.map((f) => (
             <CheckItem key={f}>{f}</CheckItem>
           ))}
@@ -75,13 +97,13 @@ export function Services({ dict }: { dict: ServicesDict }) {
         {dict.pillars.map(({ title, desc, cards }, i) => {
           const Icon = PILLAR_ICONS[i]
           return (
-            <div key={title} className="mb-12 last:mb-0">
+            <div key={title} className="mb-14 last:mb-0">
               <div className="flex items-center gap-[10px] font-syne text-[18px] font-bold text-navy mb-2">
                 <Icon size={20} stroke="#6ED3B1" strokeWidth={2} />
                 {title}
               </div>
-              <p className="text-[14px] mb-[22px]">{desc}</p>
-              <div className="grid sm:grid-cols-2 gap-5">
+              <p className="text-[14px] mb-6 text-stone">{desc}</p>
+              <div className="grid sm:grid-cols-2 gap-5 items-start overflow-visible pt-3">
                 {cards.map((card, j) => (
                   <ServiceCard
                     key={card.title}

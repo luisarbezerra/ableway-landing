@@ -1,21 +1,49 @@
-import { Button } from '@/components/ui/Button'
+import { ElementType } from 'react'
+import { Heart, Check, Smile, Lock, Globe, Zap } from 'lucide-react'
 import { Eyebrow } from '@/components/ui/Eyebrow'
-import type { ManifestoDict } from '@/dictionaries'
-import { WA } from '@/lib/constants'
+import type { ManifestoDict, ValuesDict } from '@/dictionaries'
 
-export function Manifesto({ dict }: { dict: ManifestoDict }) {
+const VALUE_ICONS: ElementType[] = [Heart, Check, Smile, Lock, Globe, Zap]
+
+export function Manifesto({ dict, values }: { dict: ManifestoDict; values: ValuesDict }) {
   return (
-    <section id="manifesto" className="py-20 bg-navy">
-      <div className="max-w-[760px] mx-auto px-10 text-center">
-        <Eyebrow style={{ color: 'rgba(110,211,177,.7)' }}>{dict.eyebrow}</Eyebrow>
-        <blockquote className="not-italic font-syne text-[clamp(24px,3.5vw,38px)] font-bold text-white leading-[1.4] tracking-[-0.015em] mb-6">
-          {dict.quoteBase}{' '}
-          <em className="text-mint not-italic">{dict.quoteEm}</em>
-        </blockquote>
-        <p className="text-[16px] text-white/50 leading-[1.75] mb-9">{dict.body}</p>
-        <Button href={WA} target="_blank" rel="noopener noreferrer">
-          {dict.cta}
-        </Button>
+    <section id="manifesto" className="py-24 bg-white">
+      <div className="max-w-container mx-auto px-10">
+
+        {/* Quote */}
+        <div className="mb-16 max-w-[700px] mx-auto text-center">
+          <Eyebrow>{dict.eyebrow}</Eyebrow>
+          <blockquote className="not-italic font-syne text-[clamp(24px,3vw,38px)] font-bold text-navy leading-[1.35] tracking-[-0.015em] mb-5">
+            {dict.quoteBase}{' '}
+            <em className="text-mint-dark not-italic">{dict.quoteEm}</em>
+          </blockquote>
+          <p className="text-[16px] text-stone leading-[1.75]">{dict.body}</p>
+        </div>
+
+        {/* Values */}
+        <div>
+          <p className="font-syne text-[13px] font-bold tracking-[.12em] uppercase text-stone mb-6">
+            {values.heading}
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {values.items.map(({ title, desc }, i) => {
+              const Icon = VALUE_ICONS[i]
+              return (
+                <div
+                  key={title}
+                  className="p-6 rounded-[14px] border border-[var(--border)] bg-white hover:shadow-[0_4px_20px_rgba(28,49,68,.05)] transition-shadow duration-150"
+                >
+                  <div className="w-[36px] h-[36px] rounded-[9px] bg-mint-light flex items-center justify-center mb-4">
+                    <Icon size={16} stroke="#44B893" strokeWidth={2} />
+                  </div>
+                  <div className="font-syne text-[15px] font-bold text-navy mb-[6px]">{title}</div>
+                  <p className="text-[13px] leading-[1.65] text-stone m-0">{desc}</p>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+
       </div>
     </section>
   )
