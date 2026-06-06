@@ -6,7 +6,7 @@ export function Footer({ dict }: { dict: FooterDict }) {
   return (
     <footer className="bg-navy pt-14 pb-8">
       <div className="max-w-container mx-auto px-10">
-        <div className="grid grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-8 md:gap-12 pb-12 border-b border-white/[.07]">
+        <div className="grid grid-cols-2 md:grid-cols-[1.4fr_1fr_1fr_1fr] gap-8 md:gap-12 pb-12">
           <div className="col-span-2 md:col-span-1">
             <Image src="/logo-mint.svg" width={48} height={48} alt="Ableway" unoptimized />
             <div className="font-syne font-bold text-[20px] text-white mt-3 mb-2">Ableway</div>
@@ -33,13 +33,10 @@ export function Footer({ dict }: { dict: FooterDict }) {
             </div>
           ))}
         </div>
-        <div className="pt-6 flex flex-col sm:flex-row justify-between items-center gap-2 text-center">
-          <div className="text-[12px] text-white/20">
-            {before}
-            <strong className="text-[rgba(110,211,177,.6)]">Ableway</strong>
-            {after}
-          </div>
-          <div className="text-[12px] text-white/20">Brasília, Brasil</div>
+        <div className="text-center text-[12px] text-white/20">
+          {before}
+          <strong className="text-[rgba(110,211,177,.6)]">Ableway</strong>
+          {after}
         </div>
       </div>
     </footer>

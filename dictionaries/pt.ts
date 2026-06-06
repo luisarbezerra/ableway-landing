@@ -230,8 +230,8 @@ export const pt: Dictionary = {
       {
         title: 'Serviços',
         links: [
-          { label: 'Consultoria para a Pessoa', href: '#services' },
-          { label: 'Consultoria para o Ambiente', href: '#services' },
+          { label: 'Plano I — Para a Pessoa', href: '#services' },
+          { label: 'Plano II — Para o Ambiente', href: '#services' },
           { label: 'Plano Basic', href: '#services' },
           { label: 'Plano Premium', href: '#services' },
         ],
@@ -239,22 +239,21 @@ export const pt: Dictionary = {
       {
         title: 'Empresa',
         links: [
-          { label: 'Nossa equipe', href: '#team' },
+          { label: 'Quem Somos', href: '#team' },
           { label: 'Manifesto', href: '#manifesto' },
-          { label: 'Valores', href: '#values' },
-          { label: 'Como funciona', href: '#process' },
+          { label: 'Por que Ableway', href: '#problem' },
         ],
       },
       {
         title: 'Contato',
         links: [
-          { label: '+55 61 9 ···· ····', href: WA, external: true },
-          { label: 'Ablewayc@gmail.com', href: EMAIL },
+          { label: '+55 61 99279-8699', href: WA, external: true },
+          { label: 'ablewayc@gmail.com', href: EMAIL },
           { label: '@ablewayc', href: INSTAGRAM, external: true },
           { label: 'Brasília, Brasil', href: '#' },
         ],
       },
     ],
-    copyright: '© 2025 Ableway · Todos os direitos reservados',
+    copyright: '© 2026 Ableway · Todos os direitos reservados',
   },
 }
