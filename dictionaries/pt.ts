@@ -1,5 +1,7 @@
 import type { Dictionary } from '.'
-import { WA, EMAIL, INSTAGRAM } from '@/lib/constants'
+import { EMAIL, INSTAGRAM } from '@/lib/constants'
+
+const WA_PT = `https://wa.me/5561992798699?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20com%20a%20Ableway.`
 
 export const pt: Dictionary = {
   meta: {
@@ -7,6 +9,7 @@ export const pt: Dictionary = {
     description:
       'Consultoria especializada em mobilidade e acessibilidade. Tecnologias assistivas e ambientes adaptados com precisão técnica e cuidado humano. Brasília, Brasil.',
   },
+  waHref: WA_PT,
   nav: {
     links: [
       { label: 'Home', href: '#hero' },
@@ -247,7 +250,7 @@ export const pt: Dictionary = {
       {
         title: 'Contato',
         links: [
-          { label: '+55 61 99279-8699', href: WA, external: true },
+          { label: '+55 61 99279-8699', href: WA_PT, external: true },
           { label: 'ablewayc@gmail.com', href: EMAIL },
           { label: '@ablewayc', href: INSTAGRAM, external: true },
           { label: 'Brasília, Brasil', href: '#' },

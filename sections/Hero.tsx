@@ -3,9 +3,7 @@ import { UserCheck, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/Button'
 import { FaWhatsapp } from 'react-icons/fa'
 import type { HeroDict } from '@/dictionaries'
-import { WA } from '@/lib/constants'
-
-export function Hero({ dict }: { dict: HeroDict }) {
+export function Hero({ dict, waHref }: { dict: HeroDict; waHref: string }) {
   return (
     <section
       id="hero"
@@ -56,7 +54,7 @@ export function Hero({ dict }: { dict: HeroDict }) {
           </h3>
           <p className="text-[14px] leading-[1.65] mb-6 whitespace-pre-line">{dict.cardBody}</p>
           <Button
-            href={WA}
+            href={waHref}
             variant="navy"
             target="_blank"
             rel="noopener noreferrer"

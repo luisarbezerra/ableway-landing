@@ -3,9 +3,9 @@ import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import { Eyebrow } from '@/components/ui/Eyebrow'
 import { Button } from '@/components/ui/Button'
 import type { CTADict } from '@/dictionaries'
-import { WA, EMAIL, INSTAGRAM } from '@/lib/constants'
+import { EMAIL, INSTAGRAM } from '@/lib/constants'
 
-export function CTA({ dict }: { dict: CTADict }) {
+export function CTA({ dict, waHref }: { dict: CTADict; waHref: string }) {
   return (
     <section id="cta" className="py-24 bg-mint-lighter border-t border-mint-light">
       <div className="max-w-[640px] mx-auto px-10 text-center">
@@ -17,7 +17,7 @@ export function CTA({ dict }: { dict: CTADict }) {
         <p className="text-[16px] leading-[1.7] mb-9 max-w-[480px] mx-auto">{dict.body}</p>
         <div className="flex gap-3 justify-center">
           <Button
-            href={WA}
+            href={waHref}
             variant="navy"
             target="_blank"
             rel="noopener noreferrer"

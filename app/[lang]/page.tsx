@@ -21,14 +21,14 @@ export default async function LangPage({ params }: { params: { lang: string } })
   const dict = await getDictionary(params.lang)
   return (
     <>
-      <Nav dict={dict.nav} />
+      <Nav dict={dict.nav} waHref={dict.waHref} />
       <main>
-        <Hero dict={dict.hero} />
+        <Hero dict={dict.hero} waHref={dict.waHref} />
         <Team dict={dict.team} />
         <Problem dict={dict.problem} />
         <Services dict={dict.services} />
         <Manifesto dict={dict.manifesto} values={dict.values} />
-        <CTA dict={dict.cta} />
+        <CTA dict={dict.cta} waHref={dict.waHref} />
       </main>
       <Footer dict={dict.footer} />
     </>

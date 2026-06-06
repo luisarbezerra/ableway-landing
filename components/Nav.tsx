@@ -3,9 +3,7 @@ import { Button } from './ui/Button'
 import { FaWhatsapp } from 'react-icons/fa'
 import { LangSwitcher } from './LangSwitcher'
 import type { NavDict } from '@/dictionaries'
-import { WA } from '@/lib/constants'
-
-export function Nav({ dict }: { dict: NavDict }) {
+export function Nav({ dict, waHref }: { dict: NavDict; waHref: string }) {
   return (
     <nav className="sticky top-0 z-[100] bg-white/[.94] backdrop-blur-[16px] border-b border-[var(--border)]">
       <div className="max-w-container mx-auto px-10 h-[68px] flex items-center justify-between">
@@ -26,7 +24,7 @@ export function Nav({ dict }: { dict: NavDict }) {
         </div>
         <div className="flex items-center gap-3">
           <LangSwitcher />
-          <Button href={WA} target="_blank" rel="noopener noreferrer" className="rounded-full">
+          <Button href={waHref} target="_blank" rel="noopener noreferrer" className="rounded-full">
             <FaWhatsapp size={18} />
             {dict.cta}
           </Button>

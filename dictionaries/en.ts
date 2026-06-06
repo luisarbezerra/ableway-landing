@@ -1,5 +1,7 @@
 import type { Dictionary } from '.'
-import { WA, EMAIL, INSTAGRAM } from '@/lib/constants'
+import { EMAIL, INSTAGRAM } from '@/lib/constants'
+
+const WA_EN = `https://wa.me/5561992798699?text=Hello!%20I%27d%20like%20to%20schedule%20an%20assessment%20with%20Ableway.`
 
 export const en: Dictionary = {
   meta: {
@@ -7,6 +9,7 @@ export const en: Dictionary = {
     description:
       'We offer solutions in mobility and accessible environments with clinical precision and human care, promoting greater independence, autonomy and quality of life in your daily routine.',
   },
+  waHref: WA_EN,
   nav: {
     links: [
       { label: 'Home', href: '#hero' },
@@ -246,7 +249,7 @@ export const en: Dictionary = {
       {
         title: 'Contact',
         links: [
-          { label: '+55 61 9 ···· ····', href: WA, external: true },
+          { label: '+55 61 9 ···· ····', href: WA_EN, external: true },
           { label: 'Ablewayc@gmail.com', href: EMAIL },
           { label: '@ablewayc', href: INSTAGRAM, external: true },
           { label: 'Brasília, Brazil', href: '#' },

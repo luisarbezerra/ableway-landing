@@ -97,6 +97,7 @@ export type FooterDict = {
 
 export type Dictionary = {
   meta: { title: string; description: string }
+  waHref: string
   nav: NavDict
   hero: HeroDict
   trustBar: TrustBarDict
